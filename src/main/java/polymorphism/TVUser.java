@@ -31,9 +31,13 @@ public class TVUser {
 //		tv.powerOff();
 		
 		//1. Spring 컨테이너를 구동한다.
-		AbstractApplicationContext factory = 
-				new GenericXmlApplicationContext("applicationContext.xml");
-		
+		AbstractApplicationContext factory = 	
+				//Xml 파일로 구동
+				//new GenericXmlApplicationContext("applicationContext.xml");
+				
+				//Component
+				new GenericXmlApplicationContext("applicationContextComponent.xml");
+				
 		//2.Spring 컨테이너로부터 필요한 객체를 요청(Look up) 한다
 		TV tv = (TV)factory.getBean("tv");
 		
