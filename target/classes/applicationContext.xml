@@ -4,8 +4,15 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<bean id="tv" class="polymorphism.SamsungTV" init-method="initMethod" destroy-method="destroyMethod"
-	lazy-init="true"/>
+	lazy-init="true">
 	
+	<!--  생성자 기반 인젝션 -->
+		<constructor-arg ref="apple"/>
+		<constructor-arg value="2700000"/>
+	</bean>
+	
+	<bean id="sony" class="polymorphism.SonySpeaker"/>
+	<bean id="apple" class="polymorphism.AppleSpeaker"/>
 	<!-- init=method 속성: 객체 생성 후 맴버변수를 초기화 -->
 	<!-- destroy-method 속성: 스프링 컨테이너가 객체를 삭제하기 직전에 호출 -->
 	
