@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="tv" class="polymorphism.SamsungTV" init-method="initMethod" destroy-method="destroyMethod"
+	lazy-init="true"/>
+	
+	<!-- init=method 속성: 객체 생성 후 맴버변수를 초기화 -->
+	<!-- destroy-method 속성: 스프링 컨테이너가 객체를 삭제하기 직전에 호출 -->
+	
+	<!-- 컨테이너 구동시 스프링 설정 파일에 등록된 모든 bean이 생성 >> 자주 사용하지도 않는 bean도 선언하여 비효율적 -->
+	<!-- lazy-init 속성: bean을 미리 생성하지 않고, 클라이언트가 요청하는 시점에 생성 
+	사용 예: lazy-init="true"-->
+</beans>
