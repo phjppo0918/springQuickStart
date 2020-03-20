@@ -22,6 +22,16 @@ public class SamsungTV implements TV {
 		this.price = price;
 	}
 	
+	public void setSpeaker(Speaker speaker) {
+		System.out.println("===> setSpeaker() 호출");
+		this.speaker = speaker;
+	}
+
+	public void setPrice(int price) {
+		System.out.println("===> setPrice() 호출");
+		this.price = price;
+	}
+
 	public void initMethod() {
 		System.out.println("객체 초기화 작업 처리..");
 	}
