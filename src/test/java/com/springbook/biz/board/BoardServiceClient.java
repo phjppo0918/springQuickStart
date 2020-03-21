@@ -25,8 +25,8 @@ public class BoardServiceClient {
 		for (BoardDTO board : boardList) {
 			System.out.println("--->" + board.toString());
 		}
-		
-		//5. Spring 컨테이너 종료
+
+		// 5. Spring 컨테이너 종료
 		container.close();
 	}
 }

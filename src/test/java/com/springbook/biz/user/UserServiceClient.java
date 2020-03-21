@@ -15,8 +15,8 @@ public class UserServiceClient {
 		
 		// 3. 로그인 기능 테스트
 		UserDTO dto = new UserDTO();
-		dto.setId("test");
-		dto.setPassword("test123");
+		dto.setId("user1");
+		dto.setPassword("user1");
 		
 		UserDTO user = userService.getUser(dto);
 		if(user != null) {
