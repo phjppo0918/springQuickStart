@@ -15,9 +15,9 @@ public class BoardServiceClient {
 
 		// 3. 글 등록 기능 테스트
 		BoardDTO dto = new BoardDTO();
-		dto.setTitle("임시 제목2");
-		dto.setWriter("관리자");
-		dto.setContent("잘 부탁드립니당~");
+		dto.setTitle("안녕안녕하세요~");
+		dto.setWriter("사용자2");
+		dto.setContent("하이하이 잘 부탁드립니당~");
 		boardService.insertBoard(dto);
 
 		// 4. 글 목록 검색 기능 테스트

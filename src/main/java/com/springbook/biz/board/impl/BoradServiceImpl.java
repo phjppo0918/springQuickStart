@@ -7,11 +7,15 @@ import org.springframework.stereotype.Service;
 
 import com.springbook.biz.board.BoardDTO;
 import com.springbook.biz.board.BoardService;
+import com.springbook.biz.common.Log4jAdvice;
+import com.springbook.biz.common.LogAdvice;
 
 @Service("boardService")
 public class BoradServiceImpl implements BoardService {
 	@Autowired
 	private BoardDAO boardDAO;
+	
+
 	
 	public void insertBoard(BoardDTO dto) {
 		boardDAO.insertBoard(dto);
