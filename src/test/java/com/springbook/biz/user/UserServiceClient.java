@@ -7,7 +7,7 @@ public class UserServiceClient {
 	public static void main(String [] args) {
 		// 1.Spring 컨테이너를 구동한다.
 		AbstractApplicationContext container = 
-				new GenericXmlApplicationContext("applicationContextBoardService.xml");
+				new GenericXmlApplicationContext("applicationContextBoardServiceAopAnnotation.xml");
 		
 		// 2. Spring 컨테이너로부터 UserServiceImpl 객체를 Lookup 한다.
 		UserService userService =
