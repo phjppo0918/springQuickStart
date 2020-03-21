@@ -14,22 +14,23 @@ import com.springbook.biz.common.LogAdvice;
 public class BoradServiceImpl implements BoardService {
 	@Autowired
 	private BoardDAO boardDAO;
-	
 
-	
 	public void insertBoard(BoardDTO dto) {
+		if (dto.getSeq() == 0) {
+			throw new IllegalArgumentException("0번 글은 등록할 수 없습니다.");
+		}
 		boardDAO.insertBoard(dto);
-		
+
 	}
 
 	public void updateBoard(BoardDTO dto) {
 		boardDAO.updateBoard(dto);
-		
+
 	}
 
 	public void deleteBoard(BoardDTO dto) {
 		boardDAO.deleteBoard(dto);
-		
+
 	}
 
 	public BoardDTO getBoard(BoardDTO dto) {
