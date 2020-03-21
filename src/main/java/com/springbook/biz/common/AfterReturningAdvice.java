@@ -11,10 +11,9 @@ import com.springbook.biz.user.UserDTO;
 @Service
 @Aspect
 public class AfterReturningAdvice {
-	@Pointcut("execution(* com.springbook.biz..*Impl.get*(..))")
-	public void getPointcut() {}
 	
-	@AfterReturning(pointcut="getPointcut()", returning="returnObj")
+	
+	@AfterReturning(pointcut="PointcutCommon.getPointcut()", returning="returnObj")
 	public void afterLog(JoinPoint jp, Object returnObj) {
 		System.out.println("[사후 처리] 비즈니스 로직 수행 후 동작");
 

@@ -9,10 +9,8 @@ import org.springframework.stereotype.Service;
 @Service
 @Aspect
 public class AfterThrowingAdvice {
-	@Pointcut("execution(* com.springbook.biz..*Impl.*(..))")
-	public void allPointcout() {}
 	
-	@AfterThrowing(pointcut = "allPointcut()", throwing = "exceptObj")
+	@AfterThrowing(pointcut = "PointcutCommon.allPointcut()", throwing = "exceptObj")
 	public void exceptionLog(JoinPoint jp, Exception exceptObj) {
 		System.out.println("[예외 처리] 비즈니스 로직 수행 중 예외 발생");
 		String method = jp.getSignature().getName();
