@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>새글 등록</title>
 </head>
-<body>
+<body> 
 	<center>
 		<h1>글 등록</h1> <a href="logout_proc.jsp">Log-out</a>
 		<hr>
