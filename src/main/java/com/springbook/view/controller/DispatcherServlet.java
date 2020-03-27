@@ -84,6 +84,7 @@ public class DispatcherServlet extends HttpServlet {
 			BoardDAO boardDAO = new BoardDAO();
 			BoardDTO board = boardDAO.getBoard(dto);
 			
+			//3. 검색 결과를 세션에 저장하고 상세 화면으로 이동한다.
 			HttpSession session = request.getSession();
 			session.setAttribute("board", board);
 			response.sendRedirect("getBoard.jsp");
