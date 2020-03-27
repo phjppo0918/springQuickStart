@@ -67,6 +67,23 @@ public class DispatcherServlet extends HttpServlet {
 			System.out.println("로그아웃 처리");
 		} else if (path.equals("/insertBoard.do")) {
 			System.out.println("글 등록 처리");
+			
+			//1. 사용자 입력 정보 추출
+			String title = request.getParameter("title");
+			String writer = request.getParameter("writer");
+			String content = request.getParameter("content");
+			
+			//2. DB 연동 처리
+			BoardDTO dto = new BoardDTO();
+			dto.setTitle(title);
+			dto.setWriter(writer);
+			dto.setContent(content);
+			
+			BoardDAO boardDAO = new BoardDAO();
+			
+			//3. 화면 네비게이션
+			response.sendRedirect("getBoardList.do");
+			
 		} else if (path.equals("/updateBoard.do")) {
 			System.out.println("글 수정 처리");
 		} else if (path.equals("/deleteBoard.do")) {
