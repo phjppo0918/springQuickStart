@@ -1,5 +1,7 @@
 package com.springbook.view.controller;
 
+import java.util.Scanner;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -15,6 +17,7 @@ public class LogoutController implements Controller {
 
 		// 2. 세션 종료 후, 메인 화면으로 이동한다.
 		return "login";
+		
 	}
 
 }

@@ -14,6 +14,7 @@ public class HandlerMapping {
 		mappings.put("/insertBoard.do", new InsertBoardController());
 		mappings.put("/updateBoard.do", new UpdateBoardController());
 		mappings.put("/deleteBoard.do", new DeleteBoardController());
+		mappings.put("/logout.do", new LogoutController());
 		
 	}
 	
