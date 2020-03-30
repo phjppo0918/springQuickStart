@@ -9,7 +9,11 @@
 			<props>
 				<prop key="/model2/login.do">login</prop>
 				<prop key="/model2/getBoardList.do">getBoardList</prop>
-				<prop key="model2/getBoard.do">getBoard</prop>
+				<prop key="/model2/getBoard.do">getBoard</prop>
+				<prop key="/model2/insertBoard.do">insertBoard</prop>
+				<prop key="/model2/updateBoard.do">updateBoard</prop>
+				<prop key="/model2/deleteBoard.do">deleteBoard</prop>
+				<prop key="/model2/logout.do">logout</prop>
 			</props>
 		</property>
 	</bean>
@@ -18,4 +22,9 @@
 	<bean id="login" class="com.springbook.view.springMVC.user.LoginController"></bean>
 	<bean id="getBoardList" class="com.springbook.view.springMVC.board.GetBoardListController"></bean>
 	<bean id="getBoard" class="com.springbook.view.springMVC.board.GetBoardController"></bean>
+	<bean id="insertBoard" class="com.springbook.view.springMVC.board.InsertBoardController"></bean>
+	<bean id="updateBoard" class="com.springbook.view.springMVC.board.UpdateBoardController"></bean>
+	<bean id="deleteBoard" class="com.springbook.view.springMVC.board.DeleteBoardController"></bean>
+	<bean id="logout" class="com.springbook.view.springMVC.user.LogoutController"></bean>
+	
 </beans>
