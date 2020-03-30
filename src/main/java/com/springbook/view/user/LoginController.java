@@ -1,10 +1,11 @@
-package com.springbook.view.controller;
+package com.springbook.view.user;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.springbook.biz.user.UserDTO;
 import com.springbook.biz.user.impl.UserDAO;
+import com.springbook.view.controller.Controller;
 
 public class LoginController implements Controller {
 

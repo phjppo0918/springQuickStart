@@ -1,4 +1,4 @@
-package com.springbook.view.controller;
+package com.springbook.view.board;
 
 import java.util.List;
 
@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import com.springbook.biz.board.BoardDTO;
 import com.springbook.biz.board.impl.BoardDAO;
+import com.springbook.view.controller.Controller;
 
 public class GetBoardListController implements Controller {
 
