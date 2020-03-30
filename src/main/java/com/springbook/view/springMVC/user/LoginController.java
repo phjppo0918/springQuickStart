@@ -3,14 +3,16 @@ package com.springbook.view.springMVC.user;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
+
 import com.springbook.biz.user.UserDTO;
 import com.springbook.biz.user.impl.UserDAO;
-import com.springbook.view.springMVC.controller.Controller;
 
 public class LoginController implements Controller {
 
 	@Override
-	public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("로그인 처리");
 
 		// 1. 사용자 입력 정보 추출
@@ -28,13 +30,14 @@ public class LoginController implements Controller {
 		UserDTO user = userDAO.getUser(dto);
 
 		// 3. 화면 네비게이션
-
+		ModelAndView mav = new ModelAndView();
 		if (user != null) {
-			return "getBoardList.do";
+			mav.setViewName("getBoardList.do");
 		} else {
-			return "loginffff";
+			mav.setViewName("login.jsp");
 		}
 
+		return mav;
 	}
 
 }

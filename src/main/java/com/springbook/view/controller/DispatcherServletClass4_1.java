@@ -14,7 +14,7 @@ import com.springbook.biz.board.impl.BoardDAO;
 import com.springbook.biz.user.UserDTO;
 import com.springbook.biz.user.impl.UserDAO;
 
-public class DispatcherServlet extends HttpServlet {
+public class DispatcherServletClass4_1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private HandlerMapping handlerMapping;
 	private ViewResolver viewResolver;
