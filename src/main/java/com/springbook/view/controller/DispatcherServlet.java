@@ -55,6 +55,8 @@ public class DispatcherServlet extends HttpServlet {
 		String view = null;
 		if(!viewName.contains(".do")) {
 			view = viewResolver.getView(viewName);
+		}else {
+			view = viewName;
 		}
 		
 		//5, 검색된 화면으로 이동한다
