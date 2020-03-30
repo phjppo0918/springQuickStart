@@ -10,7 +10,7 @@ import com.springbook.biz.board.impl.BoardDAO;
 public class UpdateBoardController {
 
 	@RequestMapping("/model2/updateBoard.do")
-	public String handleRequest(BoardDTO dto, BoardDAO boardDAO) {
+	public String updateBoard(BoardDTO dto, BoardDAO boardDAO) {
 
 		System.out.println("글 수정 처리");
 		boardDAO.updateBoard(dto);
