@@ -11,11 +11,11 @@ import com.springbook.biz.board.impl.BoardDAO;
 public class GetBoardController {
 
 	@RequestMapping("/model2/getBoard.do")
-	public ModelAndView handleRequest(BoardDTO dto, BoardDAO boardDAO, ModelAndView mav) {
+	public ModelAndView getBoard(BoardDTO dto, BoardDAO boardDAO, ModelAndView mav) {
 		System.out.println("글 상세 조회 처리");
 
 		mav.addObject("board", boardDAO.getBoard(dto)); // Model 정보 저장
-		mav.setViewName("getBoard"); // View 정보 저장
+		mav.setViewName("getBoard.jsp"); // View 정보 저장
 		return mav;
 	}
 

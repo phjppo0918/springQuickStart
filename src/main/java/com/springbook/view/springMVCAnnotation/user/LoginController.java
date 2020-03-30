@@ -14,7 +14,7 @@ public class LoginController {
 		System.out.println("로그인 처리");
 
 		if (userDAO.getUser(dto) != null) {
-			return "getBOardList.do";
+			return "getBoardList.do";
 		} else {
 			return "login.jsp";
 		}
