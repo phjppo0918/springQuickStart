@@ -9,6 +9,7 @@
 			<props>
 				<prop key="/model2/login.do">login</prop>
 				<prop key="/model2/getBoardList.do">getBoardList</prop>
+				<prop key="model2/getBoard.do">getBoard</prop>
 			</props>
 		</property>
 	</bean>
@@ -16,4 +17,5 @@
 	<!-- Controller 등록 -->
 	<bean id="login" class="com.springbook.view.springMVC.user.LoginController"></bean>
 	<bean id="getBoardList" class="com.springbook.view.springMVC.board.GetBoardListController"></bean>
+	<bean id="getBoard" class="com.springbook.view.springMVC.board.GetBoardController"></bean>
 </beans>
