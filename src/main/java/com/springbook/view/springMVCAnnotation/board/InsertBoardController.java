@@ -1,4 +1,4 @@
-package com.springbook.view.springMVC.board;
+package com.springbook.view.springMVCAnnotation.board;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
