@@ -10,6 +10,7 @@
 		<config>src/main/resources/applicationContext.xml</config>
 		<config>src/main/resources/applicationContextComponent.xml</config>
 		<config>src/main/resources/applicationContextBoardService.xml</config>
+		<config>src/main/webapp/WEB-INF/config/presentaction.xml-layer.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
