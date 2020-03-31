@@ -1,5 +1,7 @@
 package com.springbook.view.springMVCAnnotation.user;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,10 +21,11 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value = "/model2/login.do", method = RequestMethod.POST)
-	public String login(UserDTO dto, UserDAO userDAO) {
+	public String login(UserDTO dto, UserDAO userDAO, HttpSession session) {
 		System.out.println("로그인 인증 처리...");
-
-		if (userDAO.getUser(dto) != null) {
+		UserDTO user =userDAO.getUser(dto);
+		if (user != null) {
+			session.setAttribute("userName", user.getName());
 			return "getBoardList.do";
 		} else {
 			return "login.jsp";
