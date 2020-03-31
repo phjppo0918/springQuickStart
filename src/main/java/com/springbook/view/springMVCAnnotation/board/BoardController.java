@@ -7,12 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.springbook.biz.board.BoardDTO;
 import com.springbook.biz.board.impl.BoardDAO;
 
 @Controller
+@SessionAttributes("board")
 public class BoardController {
 
 	// 글 등록
@@ -26,9 +28,15 @@ public class BoardController {
 
 	// 글 수정
 	@RequestMapping("/model2/updateBoard.do")
-	public String updateBoard(BoardDTO dto, BoardDAO boardDAO) {
+	public String updateBoard(@ModelAttribute("board") BoardDTO dto, BoardDAO boardDAO) {
 
 		System.out.println("글 수정 처리");
+		System.out.println("번호: "+dto.getSeq());
+		System.out.println("제목: "+dto.getTitle());
+		System.out.println("작성자: "+dto.getWriter());
+		System.out.println("내용: "+dto.getContent());
+		System.out.println("등록일: "+dto.getRegDate());
+		System.out.println("조회수: "+dto.getCnt());
 		boardDAO.updateBoard(dto);
 		return "getBoardList.do";
 	}
