@@ -1,6 +1,10 @@
 package com.springbook.view.springMVCAnnotation.board;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -47,6 +51,15 @@ public class BoardController {
 		mav.addObject("board", boardDAO.getBoard(dto)); // Model 정보 저장
 		mav.setViewName("getBoard.jsp"); // View 정보 저장
 		return mav;
+	}
+
+	// 검색 조건 목록 설정
+	@ModelAttribute("conditionMap")
+	public Map<String, String> searchConditionMap() {
+		Map<String, String> conditionMap = new HashMap<String, String>();
+		conditionMap.put("제목", "TITLE");
+		conditionMap.put("내용", "CONTENT");
+		return conditionMap;
 	}
 
 	// 글 목록 검색
