@@ -56,6 +56,7 @@ public class BoardController {
 	// 검색 조건 목록 설정
 	@ModelAttribute("conditionMap")
 	public Map<String, String> searchConditionMap() {
+		System.out.println("검색 조건 목록 처리");
 		Map<String, String> conditionMap = new HashMap<String, String>();
 		conditionMap.put("제목", "TITLE");
 		conditionMap.put("내용", "CONTENT");
