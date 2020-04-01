@@ -7,10 +7,10 @@
 	</configSuffixes>
 	<enableImports><![CDATA[true]]></enableImports>
 	<configs>
-		<config>src/main/resources/applicationContext.xml</config>
 		<config>src/main/resources/applicationContextComponent.xml</config>
 		<config>src/main/resources/applicationContextBoardService.xml</config>
 		<config>src/main/webapp/WEB-INF/config/presentaction-layer.xml</config>
+		<config>src/main/resources/applicationContextBasic.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>
