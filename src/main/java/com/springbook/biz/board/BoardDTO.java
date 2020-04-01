@@ -12,6 +12,22 @@ public class BoardDTO {
 	private String content;
 	private Date regDate;
 	private int cnt;
+	private String searchConditon;
+	private String searchKeyword;
+	
+	public String getSearchConditon() {
+		return searchConditon;
+	}
+	public void setSearchConditon(String searchConditon) {
+		this.searchConditon = searchConditon;
+	}
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+	}
+	
 	public int getSeq() {
 		return seq;
 	}
