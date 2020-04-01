@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -53,10 +54,12 @@ public class BoardController {
 
 	// 글 상세 조회
 	@RequestMapping("/model2/getBoard.do")
-	public ModelAndView getBoard(BoardDTO dto, BoardDAO boardDAO, ModelAndView mav) {
+	public ModelAndView getBoard(BoardDTO dto, BoardDAO boardDAO, ModelAndView mav, Model model) {
 		System.out.println("글 상세 조회 처리");
-
-		mav.addObject("board", boardDAO.getBoard(dto)); // Model 정보 저장
+		
+		model.addAttribute("board",boardDAO.getBoard(dto)); // Model 정보 저장
+		
+		//mav.addObject("board", boardDAO.getBoard(dto)); // Model 정보 저장
 		mav.setViewName("getBoard.jsp"); // View 정보 저장
 		return mav;
 	}
