@@ -14,8 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.springbook.biz.board.BoardDTO;
 import com.springbook.biz.board.impl.BoardDAO;
 
-@Controller
-@SessionAttributes("board")
+//@Controller
+//@SessionAttributes("board")
 public class BoardControllerClass02 {
 
 	// 글 등록

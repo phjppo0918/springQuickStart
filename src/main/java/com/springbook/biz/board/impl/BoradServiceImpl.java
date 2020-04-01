@@ -12,8 +12,9 @@ import com.springbook.biz.common.LogAdvice;
 
 @Service("boardService")
 public class BoradServiceImpl implements BoardService {
+	
 	@Autowired
-	private BoardDAOSpring boardDAO;
+	private BoardDAO boardDAO;
 
 	public void insertBoard(BoardDTO dto) {
 //		if (dto.getSeq() == 0) {
