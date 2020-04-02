@@ -23,6 +23,11 @@ public class LoginController {
 	@RequestMapping(value = "/model2/login.do", method = RequestMethod.POST)
 	public String login(UserDTO dto, UserDAO userDAO, HttpSession session) {
 		System.out.println("로그인 인증 처리...");
+		//아이디 미입력시 예외처리
+		if(dto.getId() ==null || dto.getId().contentEquals("")) {
+			throw new IllegalArgumentException("아이디는 반드시 입력해야 합니다");
+		}
+		
 		UserDTO user =userDAO.getUser(dto);
 		if (user != null) {
 			session.setAttribute("userName", user.getName());

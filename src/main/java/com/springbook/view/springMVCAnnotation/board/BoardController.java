@@ -1,5 +1,7 @@
 package com.springbook.view.springMVCAnnotation.board;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,13 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.springbook.biz.board.BoardDTO;
 import com.springbook.biz.board.BoardService;
-import com.springbook.biz.board.impl.BoardDAO;
 
 @Controller
 @SessionAttributes("board")
@@ -25,9 +26,15 @@ public class BoardController {
 
 	// 글 등록
 	@RequestMapping(value = "/model2/insertBoard.do")
-	public String insertBoard(BoardDTO dto) {
+	public String insertBoard(BoardDTO dto) throws IOException {
 		System.out.println("글 등록 처리");
 
+		//파일 업로드 처리
+		MultipartFile uploadFile = dto.getUploadFile();
+		if(!uploadFile.isEmpty()) {
+			String fileName = uploadFile.getOriginalFilename();
+			uploadFile.transferTo(new File("C:/" +fileName));
+		}
 		// boardDAO.insertBoard(dto);
 		boardService.insertBoard(dto);
 		return "getBoardList.do";
