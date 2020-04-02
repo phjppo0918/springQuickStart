@@ -2,6 +2,8 @@ package com.springbook.biz.board;
 
 import java.sql.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 
 //VO(Value Object)
 //DTO(Data Transfer Object)
@@ -14,7 +16,14 @@ public class BoardDTO {
 	private int cnt;
 	private String searchConditon;
 	private String searchKeyword;
+	private MultipartFile uploadFile;
 	
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
+	}
 	public String getSearchConditon() {
 		return searchConditon;
 	}
