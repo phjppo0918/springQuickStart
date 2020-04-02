@@ -22,13 +22,13 @@ public class BoardController {
 
 	@Autowired
 	private BoardService boardService;
-	
+
 	// 글 등록
 	@RequestMapping(value = "/model2/insertBoard.do")
 	public String insertBoard(BoardDTO dto) {
 		System.out.println("글 등록 처리");
 
-		//boardDAO.insertBoard(dto);
+		// boardDAO.insertBoard(dto);
 		boardService.insertBoard(dto);
 		return "getBoardList.do";
 	}
@@ -38,14 +38,14 @@ public class BoardController {
 	public String updateBoard(@ModelAttribute("board") BoardDTO dto) {
 
 		System.out.println("글 수정 처리");
-		System.out.println("번호: "+dto.getSeq());
-		System.out.println("제목: "+dto.getTitle());
-		System.out.println("작성자: "+dto.getWriter());
-		System.out.println("내용: "+dto.getContent());
-		System.out.println("등록일: "+dto.getRegDate());
-		System.out.println("조회수: "+dto.getCnt());
-		
-		//boardDAO.updateBoard(dto);
+		System.out.println("번호: " + dto.getSeq());
+		System.out.println("제목: " + dto.getTitle());
+		System.out.println("작성자: " + dto.getWriter());
+		System.out.println("내용: " + dto.getContent());
+		System.out.println("등록일: " + dto.getRegDate());
+		System.out.println("조회수: " + dto.getCnt());
+
+		// boardDAO.updateBoard(dto);
 		boardService.updateBoard(dto);
 		return "getBoardList.do";
 	}
@@ -55,8 +55,8 @@ public class BoardController {
 	public String deleteBoard(BoardDTO dto) {
 
 		System.out.println("글 삭제 처리");
-		
-		//boardDAO.deleteBoard(dto);
+
+		// boardDAO.deleteBoard(dto);
 		boardService.deleteBoard(dto);
 		return "getBoardList.do";
 	}
@@ -65,11 +65,11 @@ public class BoardController {
 	@RequestMapping("/model2/getBoard.do")
 	public ModelAndView getBoard(BoardDTO dto, ModelAndView mav, Model model) {
 		System.out.println("글 상세 조회 처리");
-		
-		//model.addAttribute("board",boardDAO.getBoard(dto)); // Model 정보 저장
-		model.addAttribute("board",boardService.getBoard(dto)); // Model 정보 저장
-		
-		//mav.addObject("board", boardDAO.getBoard(dto)); // Model 정보 저장
+
+		// model.addAttribute("board",boardDAO.getBoard(dto)); // Model 정보 저장
+		model.addAttribute("board", boardService.getBoard(dto)); // Model 정보 저장
+
+		// mav.addObject("board", boardDAO.getBoard(dto)); // Model 정보 저장
 		mav.setViewName("getBoard.jsp"); // View 정보 저장
 		return mav;
 	}
@@ -89,8 +89,16 @@ public class BoardController {
 	public ModelAndView getBoardList(BoardDTO dto, Model model, ModelAndView mav) {
 		System.out.println("글 목록 검색 처리");
 
-		//mav.addObject("boardList", boardDAO.getBoardList(dto)); // Model 정보 저장
-		model.addAttribute("boardList",boardService.getBoardList(dto));
+		// Null Check
+		if (dto.getSearchConditon() == null) {
+			dto.setSearchConditon("TITLE");
+		}
+		if (dto.getSearchKeyword() == null) {
+			dto.setSearchKeyword("");
+		}
+		
+		// mav.addObject("boardList", boardDAO.getBoardList(dto)); // Model 정보 저장
+		model.addAttribute("boardList", boardService.getBoardList(dto));
 		mav.setViewName("getBoardList.jsp"); // View 정보 저장
 
 		return mav;
