@@ -13,7 +13,7 @@ public class CommonExceptionHandler {
 		mav.addObject("exception",e);
 		mav.setViewName("/common/arithmeticError.jsp");
 		return mav;
-	}
+	} 
 	
 	@ExceptionHandler(NullPointerException.class)
 	public ModelAndView handleNullPointerException(Exception e) {
