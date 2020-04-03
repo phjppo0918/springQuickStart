@@ -4,6 +4,8 @@ import java.sql.Date;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 //VO(Value Object)
 //DTO(Data Transfer Object)
@@ -18,18 +20,23 @@ public class BoardDTO {
 	private String searchKeyword;
 	private MultipartFile uploadFile;
 	
+	@JsonIgnore
 	public MultipartFile getUploadFile() {
 		return uploadFile;
 	}
 	public void setUploadFile(MultipartFile uploadFile) {
 		this.uploadFile = uploadFile;
 	}
+	
+	@JsonIgnore
 	public String getSearchConditon() {
 		return searchConditon;
 	}
 	public void setSearchConditon(String searchConditon) {
 		this.searchConditon = searchConditon;
 	}
+	
+	@JsonIgnore
 	public String getSearchKeyword() {
 		return searchKeyword;
 	}
