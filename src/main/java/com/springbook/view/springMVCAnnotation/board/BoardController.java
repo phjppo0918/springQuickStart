@@ -3,6 +3,7 @@ package com.springbook.view.springMVCAnnotation.board;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,6 +26,15 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 
+	@RequestMapping("/model2/dataTransform.do")
+	@ResponseBody
+	public List<BoardDTO> dataTransform(BoardDTO dto){
+		dto.setSearchConditon("TITLE");
+		dto.setSearchKeyword("");
+		List<BoardDTO> boardList = boardService.getBoardList(dto);
+		return boardList;
+	}
+	
 	// 글 등록
 	@RequestMapping(value = "/model2/insertBoard.do")
 	public String insertBoard(BoardDTO dto) throws IOException {
