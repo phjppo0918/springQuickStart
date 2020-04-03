@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.springbook.biz.board.BoardDTO;
+import com.springbook.biz.board.BoardListDTO;
 import com.springbook.biz.board.BoardService;
 
 @Controller
@@ -28,11 +29,13 @@ public class BoardController {
 
 	@RequestMapping("/model2/dataTransform.do")
 	@ResponseBody
-	public List<BoardDTO> dataTransform(BoardDTO dto){
+	public BoardListDTO dataTransform(BoardDTO dto){
 		dto.setSearchConditon("TITLE");
 		dto.setSearchKeyword("");
 		List<BoardDTO> boardList = boardService.getBoardList(dto);
-		return boardList;
+		BoardListDTO boardListDTO = new BoardListDTO();
+		boardListDTO.setBoardList(boardList);
+		return boardListDTO;
 	}
 	
 	// 글 등록

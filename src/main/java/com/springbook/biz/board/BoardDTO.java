@@ -1,6 +1,11 @@
 package com.springbook.biz.board;
 
-import java.sql.Date;
+import java.util.Date;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlTransient;
 
 import org.springframework.web.multipart.MultipartFile;
 
@@ -9,15 +14,21 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 //VO(Value Object)
 //DTO(Data Transfer Object)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class BoardDTO {
+	@XmlAttribute
 	private int seq;
 	private String title;
 	private String writer;
 	private String content;
 	private Date regDate;
 	private int cnt;
+	
+	@XmlTransient
 	private String searchConditon;
+	@XmlTransient
 	private String searchKeyword;
+	@XmlTransient
 	private MultipartFile uploadFile;
 	
 	@JsonIgnore
