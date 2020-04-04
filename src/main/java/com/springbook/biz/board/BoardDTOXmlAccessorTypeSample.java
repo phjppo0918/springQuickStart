@@ -2,39 +2,36 @@ package com.springbook.biz.board;
 
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Transient;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlTransient;
 
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-@Entity
-@Table(name="BOARD")
-public class BoardDTO {
-	@Id
-	@GeneratedValue
+//VO(Value Object)
+//DTO(Data Transfer Object)
+@XmlAccessorType(XmlAccessType.FIELD)
+public class BoardDTOXmlAccessorTypeSample {
+	@XmlAttribute
 	private int seq;
 	private String title;
 	private String writer;
 	private String content;
-	@Temporal(TemporalType.DATE)
 	private Date regDate;
 	private int cnt;
 	
-	@Transient
+	@XmlTransient
 	private String searchConditon;
-	@Transient
+	@XmlTransient
 	private String searchKeyword;
-	@Transient
+	@XmlTransient
 	private MultipartFile uploadFile;
 	
+	@JsonIgnore
 	public MultipartFile getUploadFile() {
 		return uploadFile;
 	}
@@ -42,6 +39,7 @@ public class BoardDTO {
 		this.uploadFile = uploadFile;
 	}
 	
+	@JsonIgnore
 	public String getSearchConditon() {
 		return searchConditon;
 	}
@@ -49,6 +47,7 @@ public class BoardDTO {
 		this.searchConditon = searchConditon;
 	}
 	
+	@JsonIgnore
 	public String getSearchKeyword() {
 		return searchKeyword;
 	}
