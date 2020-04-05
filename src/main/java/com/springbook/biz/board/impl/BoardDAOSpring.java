@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 import com.springbook.biz.board.BoardDTO;
 
 //DAO
-@Repository
+//@Repository
 // jdbcTemplate를 xml로 autowired 시키면 굳이 JdbcDaoSupport를 상속 할 필요가 없음
 public class BoardDAOSpring /* extends JdbcDaoSupport */ {
 	
